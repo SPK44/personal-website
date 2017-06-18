@@ -1,0 +1,51 @@
+{% extends "blog/base.html" %}
+
+{% block main_title %} Doug's Blog {% endblock %}
+
+{% block page_header %}
+<div class="page-heading">
+    <h1>{{ post.title }}</h1>
+    <span class="meta">Posted on {{ post.date|date:"DATE_FORMAT" }}</span>
+</div>
+{% endblock %}
+ 
+{% block content %}
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                {{ post.main_body|linebreaks }}
+
+                {% if post.subtitle1 %}
+                <h2 class="section-heading">{{ post.subtitle1 }}</h2>
+                {% endif %}
+
+                {% if post.subsection1 %}
+                {{ post.subsection1|linebreaks }}
+                {% endif %}                
+
+                {% if post.subtitle2 %}
+                <h2 class="section-heading">{{ post.subtitle2 }}</h2>
+                {% endif %}
+
+                {% if post.subsection2 %}
+                {{ post.subsection2|linebreaks }}
+                {% endif %} 
+
+                {% if post.subtitle3 %}
+                <h2 class="section-heading">{{ post.subtitle3 }}</h2>
+                {% endif %}
+
+                {% if post.subsection3 %}
+                {{ post.subsection3|linebreaks }}
+                {% endif %} 
+                
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
+
+ 

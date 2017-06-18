@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+
+{% block main_title %} Doug's Blog {% endblock %}
+
+{% block page_header %}
+<div class="site-heading">
+    <h1> Junior Developer Blog </h1>
+    <hr class="small">
+    <span class="subheading">An Intern's Perspective on Dell</span>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for post in post_list %}
+            <div class="post-preview">
+                <a href="{% url 'blog:detail' post.id %}">
+                    <h2 class="post-title">
+                        {{ post.title }}
+                    </h2>
+                </a>
+                <p class="post-meta">Posted on {{ post.date|date:"DATE_FORMAT" }}</p>
+            </div>
+            <hr>
+            {% empty %}
+            <h2>No Posts Here</h2>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
