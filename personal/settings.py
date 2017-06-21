@@ -56,7 +56,7 @@ ALLOWED_HOSTS = ['ip.praseocraft.com', 'localhost', '127.0.0.1', '192.168.1.9', 
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
-	'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
