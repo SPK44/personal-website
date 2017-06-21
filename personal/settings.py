@@ -47,7 +47,7 @@ def find_or_create_secret_key():
 SECRET_KEY = find_or_create_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ip.praseocraft.com', 'localhost', '127.0.0.1', '192.168.1.9', 'douglasdeslauriers.com', '72.200.147.194']
 
