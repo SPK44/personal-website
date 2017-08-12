@@ -43,11 +43,32 @@ def find_or_create_secret_key():
         from secret_key import SECRET_KEY
         return SECRET_KEY
 
+
+def find_or_create_debug():
+    """ 
+    Look for debug_file.py and return the SECRET_KEY entry in it if the file exists.
+    Otherwise, generate a new secret key, save it in secret_key.py, and return the key.
+    """
+    DEBUG_FILE_DIR = os.path.dirname(__file__)
+    DEBUG_FILE_FILEPATH = os.path.join(DEBUG_FILE_DIR, 'debug_file.py') 
+    sys.path.insert(1,DEBUG_FILE_DIR) 
+
+    if os.path.isfile(DEBUG_FILE_FILEPATH):
+        from debug_file import DEBUG_FILE
+        return DEBUG_FILE
+    else:
+        new_key = False
+        with open(DEBUG_FILE_FILEPATH, 'w') as f:
+            f.write("# Django's debug level\n# Do NOT check this into version control.\n\nDEBUG_FILE = '%s'\n" % new_key)
+        from debug_file import DEBUG_FILE
+        return DEBUG_FILE
+
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = find_or_create_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (find_or_create_debug() == "True")
 
 ALLOWED_HOSTS = ['ip.praseocraft.com', 'localhost', '127.0.0.1', '192.168.1.9', 'douglasdeslauriers.com', '72.200.147.194']
 
