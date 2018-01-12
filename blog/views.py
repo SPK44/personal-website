@@ -3,8 +3,8 @@ from datetime import date
 
 from .models import Post
 
-wall = "/img/wall.jpg"
-tracks = "/img/bg.jpg"
+wall = "blog/img/wall.jpg"
+tracks = "blog/img/bg.jpg"
 
 def index(request):
 	post_list = Post.objects.all()

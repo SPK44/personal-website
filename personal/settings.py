@@ -70,13 +70,14 @@ SECRET_KEY = find_or_create_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (find_or_create_debug() == "True")
 
-ALLOWED_HOSTS = ['ip.praseocraft.com', 'localhost', '127.0.0.1', '192.168.1.9', 'douglasdeslauriers.com', '72.200.147.194']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
+    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
