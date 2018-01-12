@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("hi")
+    context = {}
+    return render(request, 'polls/index.html', context)
 
 # Create your views here.
